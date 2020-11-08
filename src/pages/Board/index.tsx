@@ -1,10 +1,34 @@
 import React from 'react';
 
-import { Container } from './styles';
+import Card from '../../components/Card';
+
+import { Container, CardListContainer, RoundCounter } from './styles';
 
 const Board: React.FC = () => (
   <Container>
-    <h1>Board</h1>
+    <CardListContainer>
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+    </CardListContainer>
+    <RoundCounter>Rodadas: 0</RoundCounter>
   </Container>
 );
 
