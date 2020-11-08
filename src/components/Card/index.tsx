@@ -1,8 +1,13 @@
 import React, { useCallback, useState } from 'react';
 
+import reactImg from '../../assets/CardBack/reactJS.png';
 import { Container, CardFront, CardBack } from './styles';
 
-const Card: React.FC = () => {
+interface CardProps {
+  imageURL: string;
+}
+
+const Card: React.FC<CardProps> = ({ imageURL }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleCardFlip = useCallback(() => {
@@ -12,10 +17,10 @@ const Card: React.FC = () => {
   return (
     <Container isFlipped={isFlipped} onClick={handleCardFlip}>
       <CardFront>
-        <h1>Frente</h1>
+        <img src={imageURL} alt={imageURL} />
       </CardFront>
       <CardBack>
-        <h1>Verso</h1>
+        <img src={reactImg} alt="ReactJS" />
       </CardBack>
     </Container>
   );
