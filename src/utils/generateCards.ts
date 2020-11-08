@@ -1,5 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 
+import CardDTO from '../dtos/CardDTO';
+
 import {
   angularJS,
   aurelia,
@@ -12,11 +14,6 @@ import {
   redux,
   vueJS,
 } from '../assets';
-
-interface Card {
-  id: string;
-  imageURL: string;
-}
 
 const cardImages: string[] = [
   angularJS,
@@ -31,14 +28,15 @@ const cardImages: string[] = [
   vueJS,
 ];
 
-function shuffleCards(cards: Card[]): Card[] {
+function shuffleCards(cards: CardDTO[]): CardDTO[] {
   return cards.sort(() => Math.random() - 0.5);
 }
 
-export default function generateCards(): Card[] {
-  const cards = cardImages.map<Card>(cardImage => ({
+export default function generateCards(): CardDTO[] {
+  const cards = cardImages.map<CardDTO>(cardImage => ({
     id: uuidv4(),
     imageURL: cardImage,
+    isFlipped: false,
   }));
 
   const cloneCards = cards.map(card => ({ ...card, id: uuidv4() }));

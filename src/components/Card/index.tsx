@@ -1,21 +1,17 @@
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 
 import reactImg from '../../assets/CardBack/reactJS.png';
 import { Container, CardFront, CardBack } from './styles';
 
 interface CardProps {
   imageURL: string;
+  isFlipped: boolean;
+  onCardClick(): void;
 }
 
-const Card: React.FC<CardProps> = ({ imageURL }) => {
-  const [isFlipped, setIsFlipped] = useState(false);
-
-  const handleCardFlip = useCallback(() => {
-    setIsFlipped(!isFlipped);
-  }, [isFlipped]);
-
+const Card: React.FC<CardProps> = ({ imageURL, isFlipped, onCardClick }) => {
   return (
-    <Container isFlipped={isFlipped} onClick={handleCardFlip}>
+    <Container isFlipped={isFlipped} onClick={onCardClick}>
       <CardFront>
         <img src={imageURL} alt={imageURL} />
       </CardFront>
