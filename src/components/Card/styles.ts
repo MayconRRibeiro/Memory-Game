@@ -36,6 +36,10 @@ const CardBody = styled.div`
   height: 100%;
 
   backface-visibility: hidden;
+
+  img {
+    width: 100%;
+  }
 `;
 
 export const CardFront = styled(CardBody)`
