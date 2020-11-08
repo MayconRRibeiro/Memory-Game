@@ -36,7 +36,7 @@ export default function generateCards(): CardDTO[] {
   const cards = cardImages.map<CardDTO>(cardImage => ({
     id: uuidv4(),
     imageURL: cardImage,
-    isFlipped: false,
+    isFlipped: true,
   }));
 
   const cloneCards = cards.map(card => ({ ...card, id: uuidv4() }));

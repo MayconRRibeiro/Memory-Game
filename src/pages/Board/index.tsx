@@ -13,6 +13,14 @@ const Board: React.FC = () => {
   const [secondCard, setSecondCard] = useState<CardDTO>();
   const [roundCounter, setRoundCounter] = useState(0);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setCards(prevCards =>
+        prevCards.map(card => ({ ...card, isFlipped: false })),
+      );
+    }, 1500);
+  }, []);
+
   const resetSelectedCards = useCallback(() => {
     setFirstCard(undefined);
     setSecondCard(undefined);
