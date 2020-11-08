@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import Card from '../../components/Card';
 import generateCards from '../../utils/generateCards';
@@ -12,6 +13,8 @@ const Board: React.FC = () => {
   const [firstCard, setFirstCard] = useState<CardDTO>();
   const [secondCard, setSecondCard] = useState<CardDTO>();
   const [roundCounter, setRoundCounter] = useState(0);
+
+  const history = useHistory();
 
   useEffect(() => {
     setTimeout(() => {
@@ -48,6 +51,14 @@ const Board: React.FC = () => {
     }, 500);
   }, [firstCard, secondCard, setCardIsFlipped]);
 
+  const checkVictory = useCallback(() => {
+    const winCondition = cards.every(card => card.isFlipped);
+
+    if (winCondition) {
+      history.push('/leaderboard');
+    }
+  }, [cards, history]);
+
   useEffect(() => {
     if (!firstCard || !secondCard) return;
 
@@ -57,7 +68,9 @@ const Board: React.FC = () => {
 
     resetSelectedCards();
     setRoundCounter(prevState => prevState + 1);
-  }, [firstCard, secondCard, onFailureGuess, resetSelectedCards]);
+
+    checkVictory();
+  }, [firstCard, secondCard, onFailureGuess, resetSelectedCards, checkVictory]);
 
   const onCardClick = useCallback(
     (card: CardDTO) => {

@@ -19,21 +19,21 @@ export const Container = styled.div<ContainerProps>`
   transform-style: preserve-3d;
   transition: transform 0.5s ease-in-out;
 
-  ${props =>
-    props.isFlipped &&
+  ${({ isFlipped }) =>
+    isFlipped &&
     css`
       transform: rotateY(180deg);
     `}
 `;
 
 const CardBody = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   position: absolute;
   width: 100%;
   height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   backface-visibility: hidden;
 

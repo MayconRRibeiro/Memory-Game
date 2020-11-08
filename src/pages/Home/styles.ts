@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import { shade } from 'polished';
 
 export const Container = styled.div`
-  height: 100vh;
-
   display: flex;
   align-items: center;
   justify-content: center;
+
+  height: 100vh;
 `;
 
 export const Content = styled.div`
