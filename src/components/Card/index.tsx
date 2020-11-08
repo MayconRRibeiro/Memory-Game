@@ -13,10 +13,10 @@ const Card: React.FC<CardProps> = ({ imageURL, isFlipped, onCardClick }) => {
   return (
     <Container isFlipped={isFlipped} onClick={onCardClick}>
       <CardFront>
-        <img src={imageURL} alt={imageURL} />
+        <img draggable={false} src={imageURL} alt={imageURL} />
       </CardFront>
       <CardBack>
-        <img src={reactImg} alt="ReactJS" />
+        <img draggable={false} src={reactImg} alt="ReactJS" />
       </CardBack>
     </Container>
   );
