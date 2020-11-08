@@ -11,6 +11,7 @@ const Board: React.FC = () => {
   const [cards, setCards] = useState(generateCards);
   const [firstCard, setFirstCard] = useState<CardDTO>();
   const [secondCard, setSecondCard] = useState<CardDTO>();
+  const [roundCounter, setRoundCounter] = useState(0);
 
   const resetSelectedCards = useCallback(() => {
     setFirstCard(undefined);
@@ -27,12 +28,6 @@ const Board: React.FC = () => {
     );
   }, []);
 
-  const onSuccessGuess = useCallback(() => {
-    if (!firstCard || !secondCard) return;
-
-    console.log('Acertei'); // eslint-disable-line
-  }, [firstCard, secondCard]);
-
   const onFailureGuess = useCallback(() => {
     if (!firstCard || !secondCard) return;
 
@@ -48,18 +43,13 @@ const Board: React.FC = () => {
   useEffect(() => {
     if (!firstCard || !secondCard) return;
 
-    firstCard.imageURL === secondCard.imageURL
-      ? onSuccessGuess()
-      : onFailureGuess();
+    if (firstCard.imageURL !== secondCard.imageURL) {
+      onFailureGuess();
+    }
 
     resetSelectedCards();
-  }, [
-    firstCard,
-    secondCard,
-    onSuccessGuess,
-    onFailureGuess,
-    resetSelectedCards,
-  ]);
+    setRoundCounter(prevState => prevState + 1);
+  }, [firstCard, secondCard, onFailureGuess, resetSelectedCards]);
 
   const onCardClick = useCallback(
     (card: CardDTO) => {
@@ -84,7 +74,7 @@ const Board: React.FC = () => {
           />
         ))}
       </CardListContainer>
-      <RoundCounter>Rodadas: 0</RoundCounter>
+      <RoundCounter>{`Rodadas: ${roundCounter}`}</RoundCounter>
     </Container>
   );
 };
