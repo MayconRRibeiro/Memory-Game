@@ -1,10 +1,17 @@
 import React from 'react';
 
-import { Container } from './styles';
+import { Container, Content } from './styles';
 
 const Home: React.FC = () => (
   <Container>
-    <h1>Home</h1>
+    <Content>
+      <form>
+        <h1>Jogo de Memória</h1>
+
+        <input type="text" placeholder="nome" />
+        <button type="submit">Jogar</button>
+      </form>
+    </Content>
   </Container>
 );
 
