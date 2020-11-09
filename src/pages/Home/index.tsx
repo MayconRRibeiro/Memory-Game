@@ -1,14 +1,39 @@
-import React, { useCallback } from 'react';
+import React, { ChangeEvent, useCallback, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+
+import { useUser } from '../../hooks/UserContext';
 
 import { Container, Content } from './styles';
 
+interface HomeFormData {
+  name: string;
+}
+
 const Home: React.FC = () => {
+  const [formData, setFormData] = useState<HomeFormData>({ name: '' });
+
+  const { playGame } = useUser();
   const history = useHistory();
 
   const handleSubmit = useCallback(() => {
-    history.push('/Board');
-  }, [history]);
+    try {
+      if (!formData) return;
+
+      playGame({ name: formData.name });
+
+      history.push('/Board');
+    } catch (err) {
+      throw new Error(err);
+    }
+  }, [playGame, formData, history]);
+
+  const handleOnChange = useCallback(
+    (event: ChangeEvent<HTMLInputElement>): void => {
+      const { value } = event.target;
+      setFormData({ name: value });
+    },
+    [],
+  );
 
   return (
     <Container>
@@ -16,7 +41,12 @@ const Home: React.FC = () => {
         <form onSubmit={handleSubmit}>
           <h1>Jogo de Memória</h1>
 
-          <input type="text" placeholder="nome" />
+          <input
+            type="text"
+            placeholder="nome"
+            value={formData.name}
+            onChange={handleOnChange}
+          />
           <button type="submit">Jogar</button>
         </form>
       </Content>

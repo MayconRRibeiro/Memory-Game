@@ -9,7 +9,7 @@ import CardDTO from '../../dtos/CardDTO';
 import { Container, CardListContainer, RoundCounter } from './styles';
 
 const Board: React.FC = () => {
-  const [cards, setCards] = useState(generateCards);
+  const [cards, setCards] = useState<CardDTO[]>(generateCards);
   const [firstCard, setFirstCard] = useState<CardDTO>();
   const [secondCard, setSecondCard] = useState<CardDTO>();
   const [roundCounter, setRoundCounter] = useState(0);
@@ -51,13 +51,23 @@ const Board: React.FC = () => {
     }, 500);
   }, [firstCard, secondCard, setCardIsFlipped]);
 
-  const checkVictory = useCallback(() => {
-    const winCondition = cards.every(card => card.isFlipped);
+  useEffect(() => {
+    const MIN_ROUNDS_TO_WIN = 10;
+    if (roundCounter < MIN_ROUNDS_TO_WIN) return;
 
-    if (winCondition) {
-      history.push('/leaderboard');
-    }
-  }, [cards, history]);
+    const checkVictory = () => {
+      const winCondition = cards.every(card => card.isFlipped);
+
+      if (winCondition) {
+        history.push({
+          pathname: '/leaderboard',
+          state: { rounds: roundCounter },
+        });
+      }
+    };
+
+    checkVictory();
+  }, [roundCounter]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (!firstCard || !secondCard) return;
@@ -68,9 +78,7 @@ const Board: React.FC = () => {
 
     resetSelectedCards();
     setRoundCounter(prevState => prevState + 1);
-
-    checkVictory();
-  }, [firstCard, secondCard, onFailureGuess, resetSelectedCards, checkVictory]);
+  }, [firstCard, secondCard, onFailureGuess, resetSelectedCards]);
 
   const onCardClick = useCallback(
     (card: CardDTO) => {
