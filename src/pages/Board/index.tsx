@@ -107,6 +107,7 @@ const Board: React.FC = () => {
           <Card
             key={card.id}
             imageURL={card.imageURL}
+            imageName={card.imageName}
             onCardClick={() => onCardClick(card)}
             isFlipped={card.isFlipped}
           />

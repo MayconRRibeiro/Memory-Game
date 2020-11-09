@@ -2,7 +2,7 @@ export { default as angularJS } from './angularJS.png';
 export { default as aurelia } from './aurelia.png';
 export { default as backboneJS } from './backboneJS.png';
 export { default as css3 } from './css3.png';
-export { default as ember } from './ember.png';
+export { default as emberJS } from './emberJS.png';
 export { default as html5 } from './html5.png';
 export { default as javascript } from './javascript.png';
 export { default as polymer } from './polymer.png';

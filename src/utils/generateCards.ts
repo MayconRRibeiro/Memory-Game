@@ -7,7 +7,7 @@ import {
   aurelia,
   backboneJS,
   css3,
-  ember,
+  emberJS,
   html5,
   javascript,
   polymer,
@@ -15,17 +15,56 @@ import {
   vueJS,
 } from '../assets';
 
-const cardImages: string[] = [
-  angularJS,
-  aurelia,
-  backboneJS,
-  css3,
-  ember,
-  html5,
-  javascript,
-  polymer,
-  redux,
-  vueJS,
+interface cardImageProps {
+  image: string;
+  name: string;
+}
+
+const cardImages: cardImageProps[] = [
+  {
+    image: angularJS,
+    name: 'angularJS',
+  },
+  {
+    image: aurelia,
+    name: 'aurelia',
+  },
+  {
+    image: backboneJS,
+    name: 'backboneJS',
+  },
+  {
+    image: angularJS,
+    name: 'angularJS',
+  },
+  {
+    image: css3,
+    name: 'css3',
+  },
+  {
+    image: emberJS,
+    name: 'emberJS',
+  },
+  {
+    image: html5,
+    name: 'html5',
+  },
+  {
+    image: javascript,
+    name: 'javascript',
+  },
+  {
+    image: polymer,
+    name: 'polymer',
+  },
+  {
+    image: redux,
+    name: 'redux',
+  },
+  {
+    image: vueJS,
+    name: 'vueJS',
+  },
 ];
 
 function shuffleCards(cards: CardDTO[]): CardDTO[] {
@@ -35,7 +74,8 @@ function shuffleCards(cards: CardDTO[]): CardDTO[] {
 export default function generateCards(): CardDTO[] {
   const cards = cardImages.map<CardDTO>(cardImage => ({
     id: uuidv4(),
-    imageURL: cardImage,
+    imageURL: cardImage.image,
+    imageName: cardImage.name,
     isFlipped: true,
   }));
 

@@ -5,15 +5,21 @@ import { Container, CardFront, CardBack } from './styles';
 
 interface CardProps {
   imageURL: string;
+  imageName: string;
   isFlipped: boolean;
   onCardClick(): void;
 }
 
-const Card: React.FC<CardProps> = ({ imageURL, isFlipped, onCardClick }) => {
+const Card: React.FC<CardProps> = ({
+  imageURL,
+  imageName,
+  isFlipped,
+  onCardClick,
+}) => {
   return (
     <Container isFlipped={isFlipped} onClick={onCardClick}>
       <CardFront>
-        <img draggable={false} src={imageURL} alt={imageURL} />
+        <img draggable={false} src={imageURL} alt={imageName} />
       </CardFront>
       <CardBack>
         <img draggable={false} src={reactImg} alt="ReactJS" />
