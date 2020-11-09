@@ -60,7 +60,7 @@ export const Header = styled.div`
     font-weight: 300;
     user-select: none;
 
-    margin-left: auto;
+    margin-left: 12px;
   }
 `;
 
@@ -72,14 +72,23 @@ export const Content = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 0 0 10px 10px;
 
+  ol {
+    counter-increment: selection;
+  }
+
   li {
     display: flex;
-    justify-content: space-between;
 
-    list-style: none;
     font-size: 16px;
+    width: 100%;
 
     padding: 10px;
+
+    &::before {
+      content: counter(selection);
+      color: #1b262c;
+      margin-right: 10px;
+    }
 
     strong {
       color: #0f4c75;
@@ -87,6 +96,7 @@ export const Content = styled.div`
 
     span {
       color: #3282b8;
+      margin-left: auto;
     }
   }
 `;
