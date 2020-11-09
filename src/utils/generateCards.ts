@@ -34,10 +34,6 @@ const cardImages: cardImageProps[] = [
     name: 'backboneJS',
   },
   {
-    image: angularJS,
-    name: 'angularJS',
-  },
-  {
     image: css3,
     name: 'css3',
   },
