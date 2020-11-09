@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 
 import { useUser } from '../../hooks/UserContext';
 
 import badgeTrophyImg from '../../assets/badgeTrophy.png';
-import { Container, Board, Header, Content } from './styles';
+import { Container, Board, Header, Content, GroupButton } from './styles';
 
 interface playerData {
   id: string;
@@ -25,9 +25,14 @@ const Leaderboard: React.FC = () => {
 
   const { data } = useUser();
   const location = useLocation<LocationState>();
+  const history = useHistory();
 
   useEffect(() => {
-    if (!data || !data.name) return;
+    if (!data || !data.name) {
+      history.push('/');
+
+      return;
+    }
 
     const { rounds } = location.state;
 
@@ -38,7 +43,6 @@ const Leaderboard: React.FC = () => {
     };
 
     const updatedPlayersList = [...playersList, player];
-
     setPlayersList(updatedPlayersList);
 
     localStorage.setItem(
@@ -55,15 +59,26 @@ const Leaderboard: React.FC = () => {
           <span>Leaderboard</span>
         </Header>
         <Content>
-          {playersList.map(player => (
-            <ol key={player.id}>
-              <li>
-                <strong>{player.name}</strong>
-                <span>{`${player.rounds} Rodadas`}</span>
-              </li>
-            </ol>
-          ))}
+          {playersList
+            .sort((a, b) => a.rounds - b.rounds)
+            .map(player => (
+              <ol key={player.id}>
+                <li>
+                  <strong>{player.name}</strong>
+                  <span>{`${player.rounds} Rodadas`}</span>
+                </li>
+              </ol>
+            ))}
         </Content>
+
+        <GroupButton>
+          <Link to="/Board">
+            <strong>Jogar Novamente</strong>
+          </Link>
+          <Link to="/">
+            <strong>Tela principal</strong>
+          </Link>
+        </GroupButton>
       </Board>
     </Container>
   );

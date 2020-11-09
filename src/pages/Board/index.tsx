@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
+import { useUser } from '../../hooks/UserContext';
+
 import Card from '../../components/Card';
 import generateCards from '../../utils/generateCards';
 
@@ -14,6 +16,7 @@ const Board: React.FC = () => {
   const [secondCard, setSecondCard] = useState<CardDTO>();
   const [roundCounter, setRoundCounter] = useState(0);
 
+  const { data } = useUser();
   const history = useHistory();
 
   useEffect(() => {
@@ -90,6 +93,12 @@ const Board: React.FC = () => {
     },
     [firstCard],
   );
+
+  useEffect(() => {
+    if (!data || !data.name) {
+      history.push('/');
+    }
+  }, [data, history]);
 
   return (
     <Container>

@@ -56,6 +56,8 @@ export const Content = styled.div`
       margin-top: 20px;
       padding: 5px 0;
 
+      transition: background-color 0.2s;
+
       &:hover {
         background: ${shade(0.2, '#fff')};
       }
