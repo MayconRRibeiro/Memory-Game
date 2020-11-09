@@ -11,6 +11,7 @@ export default createGlobalStyle`
   body {
     background: linear-gradient(to bottom right, #01326c 0%, #47a1f7 100%);
     color: #1b262c;
+
     -webkit-font-smoothing: antialiased;
   }
 

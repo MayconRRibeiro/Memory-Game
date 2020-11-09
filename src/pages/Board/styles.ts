@@ -12,8 +12,15 @@ export const Container = styled.div`
 export const CardListContainer = styled.main`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  gap: 12px;
+  gap: 1rem;
+
+  @media (max-width: 425px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 375px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;
 
 export const RoundCounter = styled.strong`

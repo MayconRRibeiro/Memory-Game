@@ -6,8 +6,8 @@ interface ContainerProps {
 
 export const Container = styled.div<ContainerProps>`
   position: relative;
-  width: 120px;
-  height: 160px;
+  width: 80px;
+  height: 120px;
 
   user-select: none;
   cursor: pointer;
@@ -44,6 +44,7 @@ const CardBody = styled.div`
 
 export const CardFront = styled(CardBody)`
   background-color: #bbe1fa;
+
   transform: rotateY(180deg);
 `;
 
