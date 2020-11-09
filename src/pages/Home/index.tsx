@@ -17,7 +17,7 @@ const Home: React.FC = () => {
 
   const handleSubmit = useCallback(() => {
     try {
-      if (!formData) return;
+      if (!formData.name) return;
 
       playGame({ name: formData.name });
 
