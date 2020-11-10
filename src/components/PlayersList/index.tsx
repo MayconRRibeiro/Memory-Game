@@ -1,6 +1,11 @@
 import React from 'react';
 
-import { ContainerOrderedList } from './styles';
+import {
+  ContainerOrderedList,
+  ContainerList,
+  PlayerName,
+  RecordCount,
+} from './styles';
 
 interface PlayersListProps {
   key: string;
@@ -11,10 +16,10 @@ interface PlayersListProps {
 const PlayersList: React.FC<PlayersListProps> = ({ key, name, rounds }) => {
   return (
     <ContainerOrderedList key={key}>
-      <li>
-        <strong>{name}</strong>
-        <span>{`${rounds} Rodadas`}</span>
-      </li>
+      <ContainerList>
+        <PlayerName>{name}</PlayerName>
+        <RecordCount>{`${rounds} Rodadas`}</RecordCount>
+      </ContainerList>
     </ContainerOrderedList>
   );
 };
