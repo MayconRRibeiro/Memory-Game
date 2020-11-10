@@ -36,6 +36,7 @@ const CardBody = styled.div`
   align-items: center;
 
   backface-visibility: hidden;
+  transform: rotateX(0deg);
 
   img {
     width: 100%;
