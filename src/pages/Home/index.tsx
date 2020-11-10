@@ -43,9 +43,10 @@ const Home: React.FC = () => {
 
           <input
             type="text"
-            placeholder="nome"
+            placeholder="Digite seu nome"
             value={formData.name}
             onChange={handleOnChange}
+            required
           />
           <button type="submit">Jogar</button>
         </form>
