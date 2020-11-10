@@ -34,7 +34,7 @@
     "@typescript-eslint/ban-types": "off",
     "no-use-before-define": "off",
     "no-unused-expressions": "off",
-    "prettier/prettier": "error",
+    "prettier/prettier": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
