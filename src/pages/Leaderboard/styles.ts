@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { shade } from 'polished';
 
 export const Container = styled.div`
   display: flex;
@@ -11,29 +12,6 @@ export const Container = styled.div`
 
 export const Board = styled.div`
   width: auto;
-
-  a {
-    background-color: #47a1f7;
-    text-decoration: none;
-
-    width: 100%;
-    max-width: 200px;
-    height: 36px;
-
-    border-radius: 10px;
-
-    display: flex;
-    flex-direction: center;
-    align-items: center;
-
-    margin: 20px;
-
-    strong {
-      flex: 1;
-      text-align: center;
-      color: #fff;
-    }
-  }
 `;
 
 export const Header = styled.div`
@@ -79,14 +57,16 @@ export const Content = styled.div`
   li {
     display: flex;
 
-    font-size: 16px;
     width: 100%;
+
+    font-size: 16px;
 
     padding: 10px;
 
     &::before {
       content: counter(selection);
       color: #1b262c;
+
       margin-right: 10px;
     }
 
@@ -96,6 +76,7 @@ export const Content = styled.div`
 
     span {
       color: #3282b8;
+
       margin-left: auto;
     }
   }
@@ -105,4 +86,33 @@ export const GroupButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  transition: background-color 0.2s;
+
+  a {
+    display: flex;
+    flex-direction: center;
+    align-items: center;
+
+    width: 100%;
+    max-width: 200px;
+    height: 36px;
+
+    border-radius: 10px;
+    margin: 20px;
+
+    background-color: #47a1f7;
+    transition: background-color 0.2s;
+    text-decoration: none;
+
+    &:hover {
+      background: ${shade(0.2, '#47a1f7')};
+    }
+
+    strong {
+      flex: 1;
+      text-align: center;
+      color: #fff;
+    }
+  }
 `;

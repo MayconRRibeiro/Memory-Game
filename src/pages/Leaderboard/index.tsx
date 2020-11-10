@@ -29,7 +29,7 @@ const Leaderboard: React.FC = () => {
 
   useEffect(() => {
     if (!data || !data.name) {
-      history.push('/');
+      // history.push('/');
 
       return;
     }
