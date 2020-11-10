@@ -21,7 +21,7 @@ export const Header = styled.div`
 
   color: #c7ede6;
 
-  width: 400px;
+  width: auto;
 
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 10px 10px 0 0;
@@ -65,7 +65,7 @@ export const GroupButton = styled.div`
 
     width: 100%;
     max-width: 200px;
-    height: 36px;
+    height: 46px;
 
     border-radius: 10px;
     margin: 20px;

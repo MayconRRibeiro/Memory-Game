@@ -21,6 +21,8 @@ export const ContainerOrderedList = styled.ol`
 
     strong {
       color: #0f4c75;
+
+      margin-right: 16px;
     }
 
     span {
