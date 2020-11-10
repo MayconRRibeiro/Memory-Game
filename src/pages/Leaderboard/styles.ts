@@ -49,37 +49,6 @@ export const Content = styled.div`
   background-color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 0 0 10px 10px;
-
-  ol {
-    counter-increment: selection;
-  }
-
-  li {
-    display: flex;
-
-    width: 100%;
-
-    font-size: 16px;
-
-    padding: 10px;
-
-    &::before {
-      content: counter(selection);
-      color: #1b262c;
-
-      margin-right: 10px;
-    }
-
-    strong {
-      color: #0f4c75;
-    }
-
-    span {
-      color: #3282b8;
-
-      margin-left: auto;
-    }
-  }
 `;
 
 export const GroupButton = styled.div`

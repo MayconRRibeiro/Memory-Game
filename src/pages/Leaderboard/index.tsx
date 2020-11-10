@@ -4,6 +4,8 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { useUser } from '../../hooks/UserContext';
 
+import PlayersList from '../../components/PlayersList';
+
 import badgeTrophyImg from '../../assets/badgeTrophy.png';
 import { Container, Board, Header, Content, GroupButton } from './styles';
 
@@ -29,7 +31,7 @@ const Leaderboard: React.FC = () => {
 
   useEffect(() => {
     if (!data || !data.name) {
-      // history.push('/');
+      history.push('/');
 
       return;
     }
@@ -62,12 +64,11 @@ const Leaderboard: React.FC = () => {
           {playersList
             .sort((a, b) => a.rounds - b.rounds)
             .map(player => (
-              <ol key={player.id}>
-                <li>
-                  <strong>{player.name}</strong>
-                  <span>{`${player.rounds} Rodadas`}</span>
-                </li>
-              </ol>
+              <PlayersList
+                key={player.id}
+                name={player.name}
+                rounds={player.rounds}
+              />
             ))}
         </Content>
 
