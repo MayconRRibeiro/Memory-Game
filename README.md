@@ -8,9 +8,7 @@ A cada rodada, o usuário deverá escolher duas cartas que devem ser reveladas, 
 
 O sistema deve exibir um contador de rodadas, que começa em zero.
 
-Ao encontrar todos os pares, o sistema deve exibir uma mensagem de sucesso, a quantidade de rodadas da partida, e um botão para reiniciar o jogo.
-
-Outra informação importante é um ranking de quais usuários utilizaram menos rodadas para concluir.
+Ao encontrar todos os pares, o sistema exibe um ranking de quais usuários utilizaram menos rodadas para concluir.
 
 ## Preview
 
