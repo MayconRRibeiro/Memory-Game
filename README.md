@@ -1,46 +1,64 @@
-# Getting Started with Create React App
+# Jogo de Memória
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+O jogo deve começar pedindo o nome do usuário.
 
-## Available Scripts
+Deve conter pelo menos 10 pares de cartas, que devem ser embaralhadas e dispostas em forma de grid com o conteúdo de cada uma delas de forma oculta.
 
-In the project directory, you can run:
+A cada rodada, o usuário deverá escolher duas cartas que devem ser reveladas, verificando se elas formam um par. Caso formem, deve manter o par visível.
 
-### `yarn start`
+O sistema deve exibir um contador de rodadas, que começa em zero.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Ao encontrar todos os pares, o sistema deve exibir uma mensagem de sucesso, a quantidade de rodadas da partida, e um botão para reiniciar o jogo.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Outra informação importante é um ranking de quais usuários utilizaram menos rodadas para concluir.
 
-### `yarn test`
+## Preview
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<p align="center">
+  <img src=".github/MemoryGame.png" />
+</p>
 
-### `yarn build`
+## Tecnologias Utilizadas 🚀
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+React ⚛️ <br />
+Styled-Components 💅🏻 <br />
+Typescript 🦕
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## :books: Guia de instalação e execução
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Pré-requisitos
 
-### `yarn eject`
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/en/) v10.20 ou maior
+- [Yarn](https://yarnpkg.com/)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Como executar
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Clone este repositório `git clone https://github.com/MayconRRibeiro/Memory-Game.git`
+- Vá até o diretório `cd Memory-Game`
+- Execute `yarn` para instalar as dependências
+- Execute `yarn start` para rodar a aplicação
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Pronto! Você pode visualizar o "Jogo de Memória" através do endereço http://localhost:3000
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Como Contribuir? 😍
 
-## Learn More
+**Faça um fork deste repositório**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+# Clone o seu fork
+$ git clone url-do-seu-fork && cd nome-do-projeto
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Crie uma branch com sua feature ou correção de bugs
+$ git checkout -b minha-branch
+
+# Faça o commit das suas alterações
+$ git commit -m 'minhas alterações'
+
+# Faça o push para a sua branch
+$ git push origin minha-branch
+```
+
+Delete sua branch, se quiser, quando o merge da sua pull request for feito. <br />
+
+Feito com 💜 por Maycon Renan Ribeiro dos Santos
